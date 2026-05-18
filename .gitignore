@@ -1,0 +1,16 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+wsp-env/
+
+# Generated output folders
+python/res/
+python/results/
+matlab2python/results/
+
+# OS artefacts
+.DS_Store
+Thumbs.db
+desktop.ini
