@@ -22,7 +22,7 @@ Results are reported both as raw stain diameters and corrected with a spread fac
 |---|---|
 | [`matlab/`](matlab/README.md) | Original MATLAB implementation — reference pipeline |
 | [`matlab2python/`](matlab2python/README.md) | Direct line-by-line Python translation of the MATLAB pipeline |
-| [`HTML/`](HTML/README.md) | Browser-based web app — runs the full pipeline client-side, no installation needed · **[Open app](https://htmlpreview.github.io/?https://github.com/gh-elle/WSP_Scan/blob/main/HTML/index.html)** |
+| [`HTML/`](HTML/README.md) | Browser-based web app — runs the full pipeline client-side, no installation needed · **[Open app](https://gh-elle.github.io/WSP_Scan/)** |
 | `python/` | Enhanced Python version *(WORK IN PROGRESS)* |
 
 ---
@@ -48,7 +48,7 @@ Results are reported both as raw stain diameters and corrected with a spread fac
   version — it is fully functional, numerically equivalent to the original MATLAB
   code, and runs on Windows, macOS, and Linux.
 - To run the analysis **in your browser** without any installation, open
-  **[the web app](https://htmlpreview.github.io/?https://github.com/gh-elle/WSP_Scan/blob/main/HTML/index.html)**
+  **[the web app](https://gh-elle.github.io/WSP_Scan/)**
   — the full pipeline runs client-side in
   JavaScript (Chrome or Edge recommended for folder export; requires an internet
   connection for TIF support and charts). See **[`HTML/README.md`](HTML/README.md)**
