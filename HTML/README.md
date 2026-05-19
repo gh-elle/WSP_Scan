@@ -3,7 +3,7 @@
 A self-contained web application that runs the full WSP droplet analysis pipeline
 entirely in the browser — no Python, no MATLAB, no installation required.
 
-**→ [Open the app](index.html)**
+**→ [Open the app](https://gh-elle.github.io/WSP_Scan/)**
 
 ---
 
