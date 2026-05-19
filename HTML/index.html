@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WSP Scan Analyser</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+    <h1>💧 WSP Scan Analyser</h1>
+    <p>Water Sensitive Paper droplet analysis — runs entirely in your browser, no upload required.</p>
+</header>
+
+<main>
+
+    <!-- ── Upload section ───────────────────────────────────────────────────── -->
+    <section class="upload-grid">
+
+        <!-- Drop zone (no preview inside — drop still works) -->
+        <div id="drop-zone">
+            <span class="icon">📂</span>
+            <p>Drag &amp; drop a scan image here</p>
+            <span class="hint">or click to browse — TIF, PNG, JPEG</span>
+        </div>
+        <input type="file" id="file-input" accept=".tif,.tiff,.png,.jpg,.jpeg">
+
+        <!-- DPI card -->
+        <div class="dpi-card">
+            <h3>Scanner DPI</h3>
+            <select id="dpi-select">
+                <option value="300">300 dpi</option>
+                <option value="600" selected>600 dpi</option>
+                <option value="1200">1200 dpi</option>
+                <option value="custom">Personalise…</option>
+            </select>
+            <div id="custom-dpi-row">
+                <input type="number" id="custom-dpi-input"
+                       min="72" max="1200" step="1"
+                       placeholder="Enter DPI (72–1200)">
+                <button id="custom-dpi-btn">Set</button>
+            </div>
+            <p id="dpi-warning" style="display:none; margin:6px 0 0; font-size:0.8em; color:#b26a00;">
+                ⚠ DPI &gt; 600 may require significant time and resources on older or less powerful devices.
+            </p>
+        </div>
+    </section>
+
+    <!-- ── Work area: two columns (button+log LEFT | preview RIGHT) ─────────── -->
+    <div class="work-grid">
+
+        <!-- Left: Analyse button + terminal log -->
+        <div class="work-left">
+            <div class="run-row">
+                <button id="run-btn" disabled>▶ Analyse</button>
+                <div class="spinner" id="spinner"></div>
+            </div>
+
+            <!-- Terminal log (shown when analysis starts) -->
+            <section id="output-section" style="display:none;">
+                <div class="terminal-block">
+                    <div id="progress-log" aria-live="polite"></div>
+                    <pre id="results-table" style="display:none;"></pre>
+                </div>
+            </section>
+        </div>
+
+        <!-- Right: image preview — hidden until file selected -->
+        <div id="preview-box" style="display:none;">
+            <div id="preview-placeholder">
+                <span class="preview-icon">🖼️</span>
+                <p>Select an image to preview</p>
+            </div>
+            <div id="preview-spinner" style="display:none;">
+                <div class="spinner" style="display:block; width:32px; height:32px; border-width:3px;"></div>
+                <p style="color:#999; font-size:0.82rem; margin-top:8px;">Decoding image…</p>
+            </div>
+            <img id="drop-preview" alt="Scan preview" style="display:none;">
+        </div>
+
+    </div>
+
+    <!-- ── Results (full width, below work area) ─────────────────────────────── -->
+    <div id="results-content" style="display:none;">
+        <div class="plots-grid">
+            <div class="plot-card">
+                <h3>Card overlay</h3>
+                <canvas id="cv-overlay"></canvas>
+            </div>
+            <div class="plot-card">
+                <h3>Stain mask</h3>
+                <canvas id="cv-stain"></canvas>
+            </div>
+            <div class="plot-card">
+                <h3>Droplet histogram (stain diameters)</h3>
+                <canvas id="cv-hist"></canvas>
+            </div>
+            <div class="plot-card">
+                <h3>Cumulative distribution (with spread factor)</h3>
+                <canvas id="cv-cumul"></canvas>
+            </div>
+        </div>
+
+        <!-- Export -->
+        <div class="export-card" id="export-section" style="display:none;">
+            <h3>Export</h3>
+            <div class="checkbox-group">
+                <label><input type="checkbox" id="chk-csv"   checked> CSV + TXT</label>
+                <label><input type="checkbox" id="chk-plots" checked> Plot PNGs</label>
+            </div>
+            <div class="export-btns">
+                <button id="pick-folder-btn">📁 Select results folder</button>
+                <span id="folder-label">← select <code>html/results</code></span>
+                <button id="export-btn">⬇ Export</button>
+            </div>
+        </div>
+    </div>
+
+</main>
+
+<!-- CDN libs (require internet connection for TIF support) -->
+<script src="https://cdn.jsdelivr.net/npm/utif@3.1.0/UTIF.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+
+<!-- Pipeline + UI -->
+<script src="js/pipeline.js"></script>
+<script src="js/app.js"></script>
+
+</body>
+</html>

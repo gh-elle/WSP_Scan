@@ -22,6 +22,7 @@ Results are reported both as raw stain diameters and corrected with a spread fac
 |---|---|
 | [`matlab/`](matlab/README.md) | Original MATLAB implementation — reference pipeline |
 | [`matlab2python/`](matlab2python/README.md) | Direct line-by-line Python translation of the MATLAB pipeline |
+| [`HTML/`](HTML/README.md) | Browser-based web app — runs the full pipeline client-side, no installation needed · **[Open app](HTML/index.html)** |
 | `python/` | Enhanced Python version *(WORK IN PROGRESS)* |
 
 ---
@@ -46,4 +47,9 @@ Results are reported both as raw stain diameters and corrected with a spread fac
 - To run the analysis today, use the **[`matlab2python/`](matlab2python/README.md)**
   version — it is fully functional, numerically equivalent to the original MATLAB
   code, and runs on Windows, macOS, and Linux.
+- To run the analysis **in your browser** without any installation, open
+  **[`HTML/index.html`](HTML/index.html)** — the full pipeline runs client-side in
+  JavaScript (Chrome or Edge recommended for folder export; requires an internet
+  connection for TIF support and charts). See **[`HTML/README.md`](HTML/README.md)**
+  for features and limits.
 - To read or modify the reference algorithm, see **[`matlab/`](matlab/README.md)**.

@@ -31,11 +31,15 @@ Python **3.7 or later** is required.
 python -m venv wsp-env
 wsp-env\Scripts\activate
 
+:: Clone the repository and move into the matlab2python folder
+git clone https://github.com/gh-elle/WSP_Scan.git
+cd WSP_Scan\matlab2python
+
 :: Install dependencies
 pip install -r requirements.txt
 
-:: Run
-python wsp_matlab.py C:\scans\trial_01.tif
+:: Run on the included sample image
+python wsp_matlab.py ..\samples\card_example.tif
 ```
 
 ### macOS / Linux
@@ -45,11 +49,15 @@ python wsp_matlab.py C:\scans\trial_01.tif
 python3 -m venv wsp-env
 source wsp-env/bin/activate
 
+# Clone the repository and move into the matlab2python folder
+git clone https://github.com/gh-elle/WSP_Scan.git
+cd WSP_Scan/matlab2python
+
 # Install dependencies
 pip install -r requirements.txt
 
-# Run
-python wsp_matlab.py /path/to/trial_01.tif
+# Run on the included sample image
+python wsp_matlab.py ../samples/card_example.tif
 ```
 
 ### Using conda (Windows / macOS / Linux)
@@ -57,9 +65,15 @@ python wsp_matlab.py /path/to/trial_01.tif
 ```bash
 conda create -n wsp-env python=3.11
 conda activate wsp-env
+
+# Clone the repository and move into the matlab2python folder
+git clone https://github.com/gh-elle/WSP_Scan.git
+cd WSP_Scan/matlab2python
+
 pip install -r requirements.txt
 
-python wsp_matlab.py /path/to/trial_01.tif
+# Run on the included sample image
+python wsp_matlab.py ../samples/card_example.tif
 ```
 
 > **Tip:** deactivate the environment when done with `deactivate` (venv) or
