@@ -32,7 +32,7 @@ entirely in the browser — no Python, no MATLAB, no installation required.
 | Aspect | Web app | MATLAB / Python |
 |---|---|---|
 | **Processing speed** | Slower for large TIF files (>50 MB); runs on a single thread in the browser | Fast, multi-core capable |
-| **TIF / Chart support** | Requires an internet connection to load UTIF.js and Chart.js from CDN | No network needed |
+| **TIF / Chart support** | Libraries are self-hosted — works fully offline | No network needed |
 | **Batch processing** | One file at a time | Scriptable over many files |
 | **Folder output** | Chrome/Edge: folder picker; Firefox: individual downloads | Full control over output path |
 | **Spread factor table** | Same hard-coded table as MATLAB/Python | Same |

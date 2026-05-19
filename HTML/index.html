@@ -5,12 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WSP Scan Analyser</title>
     <link rel="stylesheet" href="css/style.css">
+    <meta http-equiv="Content-Security-Policy"
+          content="default-src 'none'; script-src 'self'; style-src 'self';
+                   img-src 'self' data: blob:; connect-src 'none';
+                   object-src 'none'; base-uri 'none'; frame-ancestors 'none';
+                   form-action 'none'">
 </head>
 <body>
 
 <header>
     <h1>💧 WSP Scan Analyser</h1>
-    <p>Water Sensitive Paper droplet analysis — runs entirely in your browser, no upload required.</p>
+    <p>Water Sensitive Paper droplet analysis — runs entirely in your browser, no upload required, no internet connection needed.</p>
 </header>
 
 <main>
@@ -119,9 +124,9 @@
 
 </main>
 
-<!-- CDN libs (require internet connection for TIF support) -->
-<script src="https://cdn.jsdelivr.net/npm/utif@3.1.0/UTIF.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<!-- Vendor libs (self-hosted, MIT licensed) -->
+<script src="js/vendor/UTIF.js"></script>
+<script src="js/vendor/chart.umd.min.js"></script>
 
 <!-- Pipeline + UI -->
 <script src="js/pipeline.js"></script>
