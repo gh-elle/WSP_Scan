@@ -5,6 +5,9 @@ __pycache__/
 venv/
 wsp-env/
 
+# Python folder (work in progress — not published)
+python/
+
 # Generated output folders
 python/res/
 python/results/
