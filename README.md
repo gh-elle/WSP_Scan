@@ -50,7 +50,17 @@ Results are reported both as raw stain diameters and corrected with a spread fac
 - To run the analysis **in your browser** without any installation, open
   **[the web app](https://gh-elle.github.io/WSP_Scan/)**
   — the full pipeline runs client-side in
-  JavaScript (Chrome or Edge recommended for folder export; requires an internet
-  connection for TIF support and charts). See **[`HTML/README.md`](HTML/README.md)**
+  JavaScript, fully offline (Chrome or Edge recommended for folder export). See **[`HTML/README.md`](HTML/README.md)**
   for features and limits.
 - To read or modify the reference algorithm, see **[`matlab/`](matlab/README.md)**.
+
+---
+
+## References
+
+The MATLAB pipeline implemented in this repository was developed and validated in the following works:
+
+1. Ghiani, L., Sassu, A., Piccirilli, D., Marcialis, G. L., & Gambella, F. (2019, September). *Development of a matlab code for the evaluation of spray distribution with water-sensitive paper.* In International Mid-Term Conference of the Italian Association of Agricultural Engineering (pp. 845–853). Cham: Springer International Publishing.
+
+2. Sassu, A., Psiroukis, V., Bettucci, F., Ghiani, L., Fountas, S., & Gambella, F. (2024). *Unmanned aerial system plant protection products spraying performance evaluation on a vineyard.* Precision Agriculture, 25(4), 2082–2112.
+
