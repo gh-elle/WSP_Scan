@@ -9,8 +9,10 @@ function [droplet_histogram, area_histogram, area_hist, ...
 %   components      : struct array returned by REGIONPROPS (Area field required)
 %   diameter_limits : row vector of bin edges in microns, e.g. [50 100 150 200 300 400 500 600]
 %   dpi             : scanner resolution in dots per inch (typically 600)
-%   spread_factor   : logical — true applies the spread-factor polynomial correction,
-%                     converting stain diameters to real droplet diameters
+%   spread_factor   : logical — true applies the USDA-ARS spread-factor polynomial
+%                     (same equation used by DepositScan) to convert stain diameters
+%                     to real droplet diameters:
+%                         droplet = 0.53549306 × stain − 0.000084839 × stain²
 %
 %   Returns (all diameters in microns)
 %   -----------------------------------
@@ -55,7 +57,9 @@ area_hist = accumarray(areas, 1)';   % 1 × max(area) row vector
 idx_vec    = 1:numel(area_hist);
 stain_diam = pixel_length * sqrt(4 * idx_vec / pi);
 if spread_factor
-    % Apply spread-factor correction (polynomial fit from spread_factor_equation)
+    % Apply USDA-ARS spread-factor correction (same equation used by DepositScan):
+    %   droplet_diameter = 0.53549306 × stain_diameter − 0.000084839 × stain_diameter²
+    % Reference: USDA Agricultural Research Service / DepositScan software.
     diameters = (0.53549306 * stain_diam) - (0.000084839 * stain_diam.^2);
 else
     diameters = stain_diam;

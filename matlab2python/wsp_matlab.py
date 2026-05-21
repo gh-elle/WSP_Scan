@@ -304,7 +304,9 @@ def droplet_statistics(components, dpi: int, spread_factor: bool = False) -> dic
     for a in areas:
         hist[a - 1] += 1   # 0-indexed; hist[k-1] = count for area k
 
-    # Diameters (with or without spread factor)
+    # Diameters (with or without USDA-ARS spread-factor correction)
+    # Polynomial from USDA-ARS / DepositScan:
+    #   droplet = 0.53549306 * stain - 0.000084839 * stain^2
     idx_1based = np.arange(1, max_area + 1, dtype=np.float64)
     stain_diam = pixel_um * np.sqrt(4.0 * idx_1based / np.pi)
     if spread_factor:

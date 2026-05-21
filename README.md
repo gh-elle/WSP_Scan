@@ -12,7 +12,7 @@ for each card:
 - coefficient of homogeneity (CH)
 - mean and standard deviation of droplet diameter
 
-Results are reported both as raw stain diameters and corrected with a spread factor.
+Results are reported both as raw stain diameters and corrected with the USDA-ARS spread-factor polynomial (the same equation used by the DepositScan software).
 
 ---
 

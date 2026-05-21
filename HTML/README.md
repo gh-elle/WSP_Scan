@@ -35,5 +35,5 @@ entirely in the browser — no Python, no MATLAB, no installation required.
 | **TIF / Chart support** | Libraries are self-hosted — works fully offline | No network needed |
 | **Batch processing** | One file at a time | Scriptable over many files |
 | **Folder output** | Chrome/Edge: folder picker; Firefox: individual downloads | Full control over output path |
-| **Spread factor table** | Same hard-coded table as MATLAB/Python | Same |
+| **Spread factor** | USDA-ARS polynomial (same as DepositScan software) | Same |
 | **Numerical results** | Equivalent to MATLAB/Python within floating-point precision | Reference implementation |

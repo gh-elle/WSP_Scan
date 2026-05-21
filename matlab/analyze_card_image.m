@@ -22,8 +22,8 @@ function [data_coverage, data_diameters, data_diameters_sf, card_labels] = ...
 %   card_labels       : 1 × n_cards cell of label strings
 
 name_parts = split(filename, '.');
-name_parts = split(name_parts{1}, '_');
-name_parts = join(name_parts, '-');
+% name_parts = split(name_parts{1}, '_');
+% name_parts = join(name_parts, '-');
 image_name = name_parts{1};
 
 filepath = fullfile(folder, filename);

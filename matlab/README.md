@@ -11,7 +11,6 @@ characterisation metrics: NMD, VMD, Coefficient of Homogeneity, and coverage per
 | Toolbox | Required for |
 |---|---|
 | Image Processing Toolbox | all functions |
-| Curve Fitting Toolbox | `spread_factor_equation.m` only |
 
 Tested on MATLAB R2021a and later.
 
@@ -148,7 +147,8 @@ Default scanner DPI is **600** (hardcoded in the `droplet_statistics` call insid
 `compute_droplet_coverage.m`; edit that line if you use a different scanner).
 
 **Spread-factor correction** (optional): stain diameter is converted to real droplet
-diameter using the polynomial fitted in `spread_factor_equation.m`:
+diameter using the **USDA-ARS polynomial**, the same equation used by the
+DepositScan software (USDA Agricultural Research Service):
 
 ```
 droplet_diameter = 0.53549306 × stain_diameter − 0.000084839 × stain_diameter²
@@ -211,8 +211,7 @@ spread-factor corrected diameters.
 | `binarize_card.m` | Binarises a single card by thresholding the red channel. |
 | `detect_droplets.m` | Labels connected components in a binary image (8-connectivity, no area filter). |
 | `isolate_elements.m` | Adaptive sub-segmentation: tries to split merged droplet blobs using a tighter per-blob threshold. |
-| `droplet_statistics.m` | Computes NMD, VMD, CH, coverage, and diameter histogram for a set of detected components. |
-| `spread_factor_equation.m` | Utility: fits and plots the spread-factor calibration curve (requires Curve Fitting Toolbox). |
+| `droplet_statistics.m` | Computes NMD, VMD, CH, coverage, and diameter histogram for a set of detected components. Applies the USDA-ARS spread-factor polynomial (DepositScan) when requested. |
 
 ### `testing_functionalities/`
 

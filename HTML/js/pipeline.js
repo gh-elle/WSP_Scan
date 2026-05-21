@@ -410,7 +410,8 @@ function digitizeBin(d) {
 
 /**
  * Replicate droplet_statistics.m:
- *   area → stain diameter → (optionally) spread-factor diameter →
+ *   area → stain diameter → (optionally) USDA-ARS spread-factor correction
+ *   (same polynomial used by DepositScan software) →
  *   NMD/VMD/CH/mean/std and histogram arrays.
  *
  * Uses N−1 (ddof=1) std to match MATLAB default.

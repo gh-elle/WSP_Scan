@@ -9,7 +9,8 @@ function [nmd, nmd10, nmd90, vmd, vmd10, vmd90, ch, csn, diameters, mean_diamete
 %   filename        : full path to the scan image (TIF/PNG/JPG …)
 %   diameter_limits : bin edges in microns, e.g. [50 100 150 200 300 400 500 600]
 %   plot_title      : string used as the card-segmentation figure title
-%   spread_factor   : logical — true corrects stain diameters with the spread-factor polynomial
+%   spread_factor   : logical — true corrects stain diameters using the USDA-ARS
+%                     spread-factor polynomial (same as DepositScan software)
 %   card_names      : string array of custom card labels, or "" for defaults ("WSP-1" …)
 %
 %   Scanner DPI is fixed at 600; edit the DROPLET_STATISTICS call to change it.
@@ -69,7 +70,7 @@ for idx = 1:n_cards
     bw = binarize_card(R, G, B, card_masks{idx}, 120);
     full_binary = full_binary | bw;
 
-    [~, new_components, new_labeled] = detect_droplets(bw(row_mask, col_mask)); %#ok<ASGLU>
+    [~, new_components, new_labeled] = detect_droplets(bw(row_mask, col_mask));
 
     [new_components, ~] = isolate_elements(new_components, R(row_mask, col_mask), 190);
 
